@@ -1,0 +1,57 @@
+p.sangría {
+  text-indent: 5%;
+}
+
+.hero-nature.carousel-hero.jumbotron {
+  font-family: monospace;
+}
+
+div.carousel-hero h1.hero-title, div-carousel-hero p.hero-subtitle {
+  font-family: monospace;
+}
+
+@media (max-width: 360px) {
+  div1-efecto {
+    width: 100%;
+  }
+}
+
+.img-article {
+  border-radius: 5%;
+  align-self: center;
+  width: 95%;
+  height: 95%;
+}
+
+html::selection {
+  background-color: rgba(175, 64, 255, 0.3);
+  color: aliceblue !important;
+}
+
+.tema-desglosable {
+  color: #00ff75;
+}
+
+.columna-1 {
+  width: 25%;
+}
+
+.columna-2 {
+  width: 37.5%;
+}
+
+.columna-3 {
+  width: 37.5%;
+}
+
+.columna-2.sangría {
+}
+
+tbody {
+  vertical-align: middle;
+}
+
+.columna-1, .columna-2, .columna-3 {
+  vertical-align: middle;
+}
+
