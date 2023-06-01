@@ -32,28 +32,7 @@ $hola =true;
     <link rel="stylesheet" href="../assets/css/uiverse.css">
 </head>
 <body>
-<nav class="navbar navbar-dark navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="index.php"><span class="bs-icon-sm bs-icon-circle bs-icon-primary shadow d-flex justify-content-center align-items-center me-2 bs-icon rueda-logo"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-code-slash">
-                        <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"></path>
-                    </svg></span><span>Pagina Cursos</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="../index.php">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../cursos.php">Cursos</a></li>
-                 <li class="nav-item"><a class="nav-link" href="../register.php"><b>Registrate</b></a></li>
-                  <!--    <li class="nav-item"><a class="nav-link" href="products.php">Productos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Software.php">Software</a></li>
-                </ul> -->
-                <div class="div1-efecto"><a class="btn btn-primary shadow div2-efecto" role="button"
-                <?php if (isset($_SESSION['Iniciada'])) { 
-                    echo (' href="login.php">'. $_SESSION['nombre']);
-                } else {
-                    echo ' href="login.php">Iniciar sesión';
-                }
-                ?></a></div>
-            </div>
-        </div>
-    </nav>
+<?php include '../components/nav.php' ?>
 
     <div class="row"><div class='col-auto'>
         <div class="container">

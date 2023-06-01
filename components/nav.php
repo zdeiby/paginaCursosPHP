@@ -7,6 +7,14 @@ $jsCode = <<<EOD
 </script>
 EOD;
 
+$data = $_POST['data'];
+
+// Realiza las operaciones necesarias con los datos recibidos
+// ...
+
+// Envía una respuesta al cliente (opcional)
+
+$login=true;
 ?>
 
 
@@ -17,7 +25,7 @@ EOD;
     <meta charset="utf-8">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV59T08TYC"></script>
-   
+    <script src="localstoraje.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Castelán Carpinteyro - Inicio</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9258502939818184"
@@ -39,34 +47,37 @@ EOD;
     <link rel="stylesheet" href="assets/css/extra.css">
     <link rel="stylesheet" href="assets/css/uiverse.css">
 </head> 
-<script>
-        // Leer el valor del LocalStorage
-        var valor = localStorage.getItem('miVariable');
-        console.log(valor)
-        // Enviar el valor al servidor PHP utilizando una solicitud AJAX
-        xhr.send('valor=' + encodeURIComponent(valor));
-    </script>
 
-<h1>Leer LocalStorage en PHP</h1>
-    
-    <div id="resultado"></div>
  
  <nav class="navbar navbar-dark navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="index.php"><span class="bs-icon-sm bs-icon-circle bs-icon-primary shadow d-flex justify-content-center align-items-center me-2 bs-icon rueda-logo"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-code-slash">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href=""><span class="bs-icon-sm bs-icon-circle bs-icon-primary shadow d-flex justify-content-center align-items-center me-2 bs-icon rueda-logo"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-code-slash">
                         <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"></path>
                     </svg></span><span>Pagina Cursos</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="./index.php">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./cursos.php">Cursos</a></li>
-                 <li class="nav-item"><a class="nav-link" href="./register.php"><b>Registrate</b></a></li>
+                <div id="respuesta">
+
+                  </div>
                   <!--    <li class="nav-item"><a class="nav-link" href="products.php">Productos</a></li>
                     <li class="nav-item"><a class="nav-link" href="Software.php">Software</a></li>
                 </ul> -->
-                <?php echo (false)?'<div class="div1-efecto"><a class="btn btn-primary shadow div2-efecto" role="button"
-                href="login.php">Iniciar sesión</a></div>': '' ?>
             </div>
         </div>
     </nav>
 
-    
+
+<script>
+  var data = localStorage.getItem('miVariable');
+
+  // Envía los datos al servidor PHP
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'procesar.php', true);
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      // Actualizar el contenido del elemento "respuesta" en la página
+      document.getElementById('respuesta').innerHTML = xhr.responseText;
+    }
+  };
+  xhr.send('data=' + encodeURIComponent(data));
+</script>
