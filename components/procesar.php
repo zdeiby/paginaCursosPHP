@@ -7,6 +7,8 @@ $data = $_POST['data'];
 // Envía una respuesta al cliente
 //echo $data
 
+
+
 ?>
 
 

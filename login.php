@@ -8,19 +8,21 @@ if($_POST){
 
     foreach($objRespuesta->body as $key){
         if($correo == $key->email && $password==  $key->password){
+            $valor =  $key->name;
+            echo '<script>localStorage.setItem("miVariable", "' . $valor . '");</script>';
+           
             session_start();  // para compartir info mediante archivos php 
             $_SESSION["usuario"]=$key->email;
-            $valor =  $key->name;
+            
 
             // Imprimir el valor en una etiqueta de script
-            echo '<script>localStorage.setItem("miVariable", "' . $valor . '");</script>';
-            header("Location: index.php");
-exit(); // Asegúrate de usar exit() después de la redirección para detener la ejecución del script actual
+  //header("Location: index.php");           
+//exit(); // Asegúrate de usar exit() después de la redirección para detener la ejecución del script actual
         }
     }
 }
 
-echo $_SESSION["usuario"];
+//echo $_SESSION["usuario"];
 ?>
 
 <!DOCTYPE html>
